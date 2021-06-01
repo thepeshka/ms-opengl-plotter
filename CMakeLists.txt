@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.17)
+project(ms)
+
+set(CMAKE_CXX_STANDARD 14)
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+
+add_executable(ms main.cpp)
+find_package(glfw3 3.3 REQUIRED)
+target_link_libraries(ms glfw)
+find_package(OpenGL REQUIRED)
+target_link_libraries(ms OpenGL::GL)
+find_package(GLEW REQUIRED)
+target_link_libraries(ms GLEW::GLEW)
